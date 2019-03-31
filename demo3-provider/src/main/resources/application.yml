@@ -1,0 +1,40 @@
+# port
+server:
+  port: 9001
+
+# log level
+logging:
+  level:
+    org:
+      springframework: INFO
+    cn:
+      ice: DEBUG
+
+# h2 db & jpa
+spring:
+  application:
+    name: eureka-provider-server
+  jpa:
+    database: H2
+    open-in-view: true
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        physical_naming_strategy: cn.ice.cloud.PhysicalNamingStrategy
+  datasource:
+    dirverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb;
+    username: root
+    password:
+
+# eureka
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-register: true
+    service-url:
+      defaultZone: http://root:pwd@localhost:9000/eureka

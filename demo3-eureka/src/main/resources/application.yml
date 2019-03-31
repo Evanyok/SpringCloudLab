@@ -1,0 +1,21 @@
+# server port
+server:
+  port: 9000
+
+# eureka
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-register: false
+  server:
+    wait-time-in-ms-when-sync-empty: 5
+
+# security
+security:
+  basic:
+    enabled: true
+  user:
+    name: root
+    password: pwd
