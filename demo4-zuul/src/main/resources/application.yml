@@ -1,0 +1,12 @@
+# server  port
+server:
+  port: 9100
+
+spring:
+  application:
+    name: zuul-proxy
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:pwd@localhost:9000/eureka

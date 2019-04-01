@@ -28,6 +28,17 @@ spring:
     url: jdbc:h2:mem:testdb;
     username: root
     password:
+  # config server
+  cloud:
+    config:
+      profile: test
+      uri: http://localhost:9999
+  # redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    database: 0
 
 # eureka
 eureka:

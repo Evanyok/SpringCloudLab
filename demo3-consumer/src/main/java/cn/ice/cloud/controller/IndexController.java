@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -27,6 +28,9 @@ public class IndexController {
 
     protected Logger logger = LoggerFactory.getLogger(IndexController.class);
 
+    @Value("${foo}")
+    private String foo;
+
     @Autowired
     private ProductService productService;
 
@@ -39,6 +43,11 @@ public class IndexController {
     @Autowired
     @Qualifier(value = "restTemplate")
     private RestTemplate restTemplate;
+
+    @RequestMapping(value = "/foo")
+    public String foo() {
+        return foo;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Product> list(){

@@ -9,13 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-//@FeignClient("EUREKA-PROVIDER-SERVER")
-// Use Feign Hystrix
-//@FeignClient(value = "EUREKA-PROVIDER-SERVER", fallback = UserServiceFallback.class)
-public interface UserService {
-//    @RequestMapping(value = "/user", method = RequestMethod.GET)
+@FeignClient(value = "EUREKA-PROVIDER-SERVER", fallback = UserServiceFallback.class)
+public interface UserRemoteService {
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
     List<UserDto> findAll();
 
-//    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-    UserDto load( Long id);
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+    UserDto load(@PathVariable("id") Long id);
 }

@@ -1,0 +1,14 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Evanyok/SpringConfig.git
+          username: evanyokou@yeah.net
+          password: yuh1990@1
+
